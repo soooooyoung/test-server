@@ -1,10 +1,8 @@
 "use strict";
 import "reflect-metadata";
 import { TestServer } from "./server";
-import * as MySQLConnector from "./utils/mysql/mysql.connector.sql";
 
 async function start(): Promise<void> {
-  MySQLConnector.init();
   const server = new TestServer();
   await server.startServer();
 }
