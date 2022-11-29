@@ -22,7 +22,7 @@ export class UserController {
    *
    */
   @HttpCode(200)
-  @Get("/")
+  @Get("/romance")
   public async getRomance(
     @Res() res: Response,
     @QueryParam("page") page = 1,
