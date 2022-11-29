@@ -1,9 +1,9 @@
 #!/bin/bash
 set -e
 #VERSION=$(git rev-list HEAD --count)
-VERSION='1.0.4'
-docker build -t shanabunny/test:${VERSION} .
-docker push shanabunny/test:${VERSION}
+VERSION='0.0.1'
+docker build -t shanabunny/comic:${VERSION} .
+docker push shanabunny/comic:${VERSION}
 
 echo ${VERSION}
 

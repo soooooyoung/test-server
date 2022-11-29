@@ -11,38 +11,36 @@ import { Inject, Service } from "typedi";
 import { TestService } from "../services/TestService";
 
 @Service()
-@JsonController("/user")
+@JsonController("/api/comics")
 export class UserController {
   @Inject()
   private testService: TestService = new TestService();
 
   // TODOS: ErrorHandlers, Validators
   /**
-   *  GetUsers
+   *  Get Romance Comics
    *
    */
   @HttpCode(200)
   @Get("/")
-  public async getUsers(
+  public async getRomance(
     @Res() res: Response,
     @QueryParam("page") page = 1,
     @QueryParam("pageSize") pageSize = 19
   ) {
     try {
-      const response = await this.testService.fetchComics({
-        page,
-        pageSize,
-      });
+      const response = await this.testService.fetchComicsMockData(
+        {
+          page,
+          pageSize,
+        },
+        res
+      );
 
-      return res.status(200).json({
-        success: true,
-        error: null,
-        result: response,
-      });
+      return response.status(200);
     } catch (e) {
       return res.status(400).json({
-        success: false,
-        error: e,
+        error: (e as Error).message,
       });
     }
   }
