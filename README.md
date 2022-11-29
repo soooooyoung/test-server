@@ -1,6 +1,6 @@
 # About
 
-This is a test server developed using Node.js, Express, and MySQL.
+This is a test server developed using Node.js, Express
 
 ## Built with
 
